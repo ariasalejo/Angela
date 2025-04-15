@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homenaje a Ángela María Londoño</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Particles.js (fondo floral animado) -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            color: #4a3a2f;
+        }
+
+        /* Fondo animado con Particles.js */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fff3e0 20%, #f7f7f7 80%);
+            z-index: -1;
+        }
+
+        /* Contenido principal */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 1rem;
+        }
+
+        .hero {
+            background: rgba(255, 230, 204, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Video responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            height: 0;
+            margin: 2rem 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Texto responsivo */
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Mensaje floral con letras animadas */
+        .floral-message {
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 0;
+        }
+
+        .letter {
+            display: inline-block;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin: 0 0.1rem;
+            animation: letter-float 3s ease-in-out infinite;
+        }
+
+        .letter:nth-child(1) { color: #ffd700; }
+        .letter:nth-child(2) { color: #ff69b4; }
+        .letter:nth-child(3) { color: #8a2be2; }
+        .letter:nth-child(4) { color: #3cb371; }
+        .letter:nth-child(5) { color: #ff4500; }
+        .letter:nth-child(6) { color: #ffd700; }
+        .letter:nth-child(7) { color: #ff69b4; }
+        .letter:nth-child(8) { color: #8a2be2; }
+        .letter:nth-child(9) { color: #3cb371; }
+        .letter:nth-child(10) { color: #ff4500; }
+        .letter:nth-child(11) { color: #ffd700; }
+        .letter:nth-child(12) { color: #ff69b4; }
+        .letter:nth-child(13) { color: #8a2be2; }
+        .letter:nth-child(14) { color: #3cb371; }
+        .letter:nth-child(15) { color: #ff4500; }
+        .letter:nth-child(16) { color: #ffd700; }
+        .letter:nth-child(17) { color: #ff69b4; }
+        .letter:nth-child(18) { color: #8a2be2; }
+        .letter:nth-child(19) { color: #3cb371; }
+        .letter:nth-child(20) { color: #ff4500; }
+
+        /* Animación suave para las letras */
+        @keyframes letter-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Subtítulo */
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #ff69b4;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* Responsive para el mensaje floral */
+        @media (min-width: 768px) {
+            .letter {
+                font-size: 4.5rem;
+            }
+
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+
+        /* Pie de página */
+        footer {
+            background: rgba(255, 230, 204, 0.9);
+            padding: 1rem;
+            margin-top: 2rem;
+            border-top: 2px solid #ffd700;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo animado con Particles.js -->
+    <div id="particles-js"></div>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo-flower.png" alt="Logo" width="40" height="40" class="me-2">
+                Para Ángela María
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="content container">
+        <div class="hero text-center">
+            <h1>Para mi querida madre, Ángela María Londoño</h1>
+            <p class="mt-4">
+                Querida mamá, este espacio está dedicado a ti con todo mi amor y gratitud. 
+                Eres la luz de mi vida y siempre te llevaré en mi corazón. ¡Te amo!
+            </p>
+            
+            <!-- Foto personalizada -->
+            <img src="assets/images/madre.jpg" 
+                 class="img-fluid rounded mt-5 shadow-lg">
+        </div>
+
+        <!-- Mensaje floral decorativo -->
+        <div class="floral-message text-center my-5">
+            <div class="letters">
+                <span class="letter">T</span>
+                <span class="letter">O</span>
+                <span class="letter">D</span>
+                <span class="letter">O</span>
+                <span class="letter">&nbsp;</span>
+                <span class="letter">V</span>
+                <span class="letter">A</span>
+                <span class="letter">&nbsp;</span>
+                <span class="letter">A</span>
+               <span class="letter">&nbsp;</span>
+                <span class="letter">E</span>
+                <span class="letter">S</span>
+                <span class="letter">T</span>
+                <span class="letter">A</span>
+                <span class="letter">R</span>
+                <span class="letter">&nbsp;</span>
+                <span class="letter">B</span>
+                <span class="letter">I</span>
+                <span class="letter">E</span>
+                <span class="letter">N</span>
+            </div>
+            <span class="subtitle">TU FAMILIA TE AMA</span>
+        </div>
+
+        <!-- Video de Vicente Fernández -->
+        <div class="video-container mt-5">
+            <iframe src="https://www.youtube.com/embed/Lp59AJkjSzI" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025. Creado con amor para Ángela María Londoño</p>
+    </footer>
+
+    <!-- Configuración de Particles.js -->
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 }},
+                color: { value: ["#ffd700", "#ff69b4", "#8a2be2", "#3cb371"] },
+                shape: {
+                    type: ["circle", "triangle", "polygon"],
+                    polygon: { nb_sides: 5 }
+                },
+                opacity: { value: 0.6, anim: { enable: true, speed: 1 }},
+                size: { value: 8, random: true, anim: { enable: true, speed: 15 }},
+                line_linked: { enable: false },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
+                },
+                modes: {
+                    grab: { distance: 150, line_linked: { opacity: 0.5 }},
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
