@@ -1,0 +1,29 @@
+# Fotografías originales: nunca se publican
+originales/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Herramientas
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Editores
+.vscode/
+.idea/
+
+# Archivos de trabajo
+*.psd
+*.ai
+*.xcf
+*.tif
+*.tiff
+*.RAW
+*.cr2
+*.nef
+*.dng

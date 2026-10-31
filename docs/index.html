@@ -1,268 +1,582 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homenaje a Ángela María Londoño</title>
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Particles.js (fondo floral animado) -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        /* Estilos generales */
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            overflow-x: hidden;
-            color: #4a3a2f;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
-        /* Fondo animado con Particles.js */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #fff3e0 20%, #f7f7f7 80%);
-            z-index: -1;
-        }
+  <title>Ángela María Londoño · Un jardín para mamá</title>
+  <meta name="description" content="Un homenaje íntimo a Ángela María Londoño: su carta, sus fotografías y los recuerdos que su familia guarda.">
+  <meta name="author" content="Su hijo">
+  <meta name="theme-color" content="#1B3229">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ariasalejo.github.io/Angela/">
 
-        /* Contenido principal */
-        .content {
-            position: relative;
-            z-index: 2;
-            padding: 1rem;
-        }
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="El Jardín de Ángela">
+  <meta property="og:title" content="Ángela María Londoño · Un jardín para mamá">
+  <meta property="og:description" content="Un homenaje íntimo: su carta, sus fotografías y los recuerdos que su familia guarda.">
+  <meta property="og:url" content="https://ariasalejo.github.io/Angela/">
+  <meta property="og:image" content="https://ariasalejo.github.io/Angela/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Retrato de Ángela María Londoño">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ángela María Londoño · Un jardín para mamá">
+  <meta name="twitter:description" content="Un homenaje íntimo: su carta, sus fotografías y los recuerdos que su familia guarda.">
+  <meta name="twitter:image" content="https://ariasalejo.github.io/Angela/assets/img/og.jpg">
 
-        .hero {
-            background: rgba(255, 230, 204, 0.9);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 1rem 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/icono-180.png">
 
-        /* Responsive images */
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+  <link rel="preload" href="assets/fuentes/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fuentes/karla.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" type="image/webp"
+        href="assets/img/madre-720.webp"
+        imagesrcset="assets/img/madre-480.webp 480w, assets/img/madre-720.webp 720w, assets/img/madre-960.webp 960w"
+        imagesizes="(min-width: 900px) 38vw, 84vw">
 
-        /* Video responsive */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* Proporción 16:9 */
-            height: 0;
-            margin: 2rem 0;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 5px solid #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Texto responsivo */
-        h1 {
-            font-size: 2rem;
-        }
-
-        p {
-            font-size: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 3rem;
-            }
-
-            p {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Mensaje floral con letras animadas */
-        .floral-message {
-            position: relative;
-            overflow: hidden;
-            padding: 4rem 0;
-        }
-
-        .letter {
-            display: inline-block;
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            margin: 0 0.1rem;
-            animation: letter-float 3s ease-in-out infinite;
-        }
-
-        .letter:nth-child(1) { color: #ffd700; }
-        .letter:nth-child(2) { color: #ff69b4; }
-        .letter:nth-child(3) { color: #8a2be2; }
-        .letter:nth-child(4) { color: #3cb371; }
-        .letter:nth-child(5) { color: #ff4500; }
-        .letter:nth-child(6) { color: #ffd700; }
-        .letter:nth-child(7) { color: #ff69b4; }
-        .letter:nth-child(8) { color: #8a2be2; }
-        .letter:nth-child(9) { color: #3cb371; }
-        .letter:nth-child(10) { color: #ff4500; }
-        .letter:nth-child(11) { color: #ffd700; }
-        .letter:nth-child(12) { color: #ff69b4; }
-        .letter:nth-child(13) { color: #8a2be2; }
-        .letter:nth-child(14) { color: #3cb371; }
-        .letter:nth-child(15) { color: #ff4500; }
-        .letter:nth-child(16) { color: #ffd700; }
-        .letter:nth-child(17) { color: #ff69b4; }
-        .letter:nth-child(18) { color: #8a2be2; }
-        .letter:nth-child(19) { color: #3cb371; }
-        .letter:nth-child(20) { color: #ff4500; }
-
-        /* Animación suave para las letras */
-        @keyframes letter-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Subtítulo */
-        .subtitle {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            color: #ff69b4;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            margin-top: 1rem;
-            display: block;
-        }
-
-        /* Responsive para el mensaje floral */
-        @media (min-width: 768px) {
-            .letter {
-                font-size: 4.5rem;
-            }
-
-            .subtitle {
-                font-size: 2rem;
-            }
-        }
-
-        /* Pie de página */
-        footer {
-            background: rgba(255, 230, 204, 0.9);
-            padding: 1rem;
-            margin-top: 2rem;
-            border-top: 2px solid #ffd700;
-            text-align: center;
-        }
-    </style>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <script src="assets/js/preludio.js"></script>
 </head>
 <body>
-    <!-- Fondo animado con Particles.js -->
-    <div id="particles-js"></div>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/logo-flower.png" alt="Logo" width="40" height="40" class="me-2">
-                Para Ángela María
-            </a>
-        </div>
-    </nav>
-
-    <!-- Contenido principal -->
-    <div class="content container">
-        <div class="hero text-center">
-            <h1>Para mi querida madre, Ángela María Londoño</h1>
-            <p class="mt-4">
-                Querida mamá, este espacio está dedicado a ti con todo mi amor y gratitud. 
-                Eres la luz de mi vida y siempre te llevaré en mi corazón. ¡Te amo!
-            </p>
-            
-            <!-- Foto personalizada -->
-            <img src="assets/images/madre.jpg" 
-                 class="img-fluid rounded mt-5 shadow-lg">
-        </div>
-
-        <!-- Mensaje floral decorativo -->
-        <div class="floral-message text-center my-5">
-            <div class="letters">
-                <span class="letter">T</span>
-                <span class="letter">O</span>
-                <span class="letter">D</span>
-                <span class="letter">O</span>
-                <span class="letter">&nbsp;</span>
-                <span class="letter">V</span>
-                <span class="letter">A</span>
-                <span class="letter">&nbsp;</span>
-                <span class="letter">A</span>
-               <span class="letter">&nbsp;</span>
-                <span class="letter">E</span>
-                <span class="letter">S</span>
-                <span class="letter">T</span>
-                <span class="letter">A</span>
-                <span class="letter">R</span>
-                <span class="letter">&nbsp;</span>
-                <span class="letter">B</span>
-                <span class="letter">I</span>
-                <span class="letter">E</span>
-                <span class="letter">N</span>
-            </div>
-            <span class="subtitle">TU FAMILIA TE AMA</span>
-        </div>
-
-        <!-- Video de Vicente Fernández -->
-        <div class="video-container mt-5">
-            <iframe src="https://www.youtube.com/embed/Lp59AJkjSzI" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen></iframe>
-        </div>
+  <!-- Preludio: se retira solo a los pocos segundos y se puede saltar. -->
+  <div class="preludio" id="preludio" aria-hidden="true">
+    <div class="preludio__interior">
+      <p class="preludio__etiqueta">En memoria</p>
+      <p class="preludio__nombre">Ángela María Londoño</p>
+      <span class="preludio__linea"></span>
     </div>
+  </div>
+  <div class="grano" aria-hidden="true"></div>
+  <canvas class="petalos" id="petalos" aria-hidden="true"></canvas>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>© 2025. Creado con amor para Ángela María Londoño</p>
-    </footer>
+  <header class="barra" id="barra">
+    <div class="barra__interior">
+      <a class="marca" href="#inicio" aria-label="Ángela María — volver al inicio del jardín">
+        <svg class="marca__flor" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+            <path d="M20 35V18"/>
+            <path d="M20 26c-6.2 0-9.4-3.2-9.4-8.4 5.2 0 9.4 3.2 9.4 8.4Z"/>
+            <path d="M20 21c6.2 0 9.4-3.2 9.4-8.4-5.2 0-9.4 3.2-9.4 8.4Z"/>
+            <circle cx="20" cy="10.6" r="4.4"/>
+          </g>
+          <circle cx="20" cy="10.6" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="marca__texto">Ángela María</span>
+      </a>
 
-    <!-- Configuración de Particles.js -->
-    <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 }},
-                color: { value: ["#ffd700", "#ff69b4", "#8a2be2", "#3cb371"] },
-                shape: {
-                    type: ["circle", "triangle", "polygon"],
-                    polygon: { nb_sides: 5 }
-                },
-                opacity: { value: 0.6, anim: { enable: true, speed: 1 }},
-                size: { value: 8, random: true, anim: { enable: true, speed: 15 }},
-                line_linked: { enable: false },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: true, mode: "push" }
-                },
-                modes: {
-                    grab: { distance: 150, line_linked: { opacity: 0.5 }},
-                    push: { particles_nb: 4 }
-                }
-            },
-            retina_detect: true
-        });
-    </script>
+      <nav class="nav" aria-label="Secciones del homenaje">
+        <a href="#carta">Carta</a>
+        <a href="#recuerdos">Recuerdos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#jardin">Jardín</a>
+      </nav>
+
+      <button class="barra__menu" id="abrir-menu" type="button" aria-expanded="false" aria-controls="menu">
+        <span>Índice</span>
+        <span class="barra__menu-lineas" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="progreso" aria-hidden="true"><span id="progreso"></span></div>
+  </header>
+
+  <dialog class="menu" id="menu" aria-label="Índice del homenaje">
+    <div class="menu__interior">
+      <button class="menu__cerrar" id="cerrar-menu" type="button">Cerrar</button>
+      <p class="etiqueta">Índice</p>
+      <nav aria-label="Índice del homenaje">
+        <a href="#inicio">Portada</a>
+        <a href="#carta">La carta</a>
+        <a href="#recuerdos">Los recuerdos</a>
+        <a href="#galeria">La galería</a>
+        <a href="#jardin">El jardín</a>
+        <a href="#gracias">Gracias</a>
+        <a href="#perdon">Perdón</a>
+        <a href="#cierre">Cierre</a>
+      </nav>
+    </div>
+  </dialog>
+
+  <nav class="riel" id="riel" aria-label="Recorrido del homenaje" hidden>
+    <ol>
+      <li><a href="#inicio"><span>Portada</span></a></li>
+      <li><a href="#carta"><span>La carta</span></a></li>
+      <li><a href="#recuerdos"><span>Recuerdos</span></a></li>
+      <li><a href="#galeria"><span>Galería</span></a></li>
+      <li><a href="#jardin"><span>El jardín</span></a></li>
+      <li><a href="#gracias"><span>Gracias</span></a></li>
+      <li><a href="#perdon"><span>Perdón</span></a></li>
+      <li><a href="#cierre"><span>Cierre</span></a></li>
+    </ol>
+  </nav>
+
+  <main id="contenido">
+
+    <!-- ══════════════════════════════════════════════════════ 00 · PORTADA -->
+    <section class="portada" id="inicio" aria-labelledby="t-portada">
+      <div class="portada__luz" aria-hidden="true"></div>
+      <div class="portada__brillo" id="brillo" aria-hidden="true"></div>
+      <div class="portada__interior">
+        <div class="portada__texto">
+          <p class="etiqueta entra entra--1">En memoria</p>
+          <h1 class="portada__nombre entra entra--2" id="t-portada">
+            <span class="portada__nombre-linea">Ángela</span>
+            <span class="portada__nombre-linea portada__nombre-linea--cursiva">María Londoño</span>
+          </h1>
+          <p class="portada__lema entra entra--3">Madre de mi alma</p>
+          <!-- ✏️ TEXTO: presentación breve -->
+          <p class="portada__intro entra entra--4">
+            Este jardín existe para decirte, con calma, todo lo que la vida cotidiana
+            no siempre alcanza a decir.
+          </p>
+          <a class="boton entra entra--5" href="#carta">
+            Entrar al jardín
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15M5.5 13 12 19.5 18.5 13" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <figure class="portada__retrato entra entra--3">
+          <div class="marco">
+          <div class="arco">
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/madre-480.webp 480w, assets/img/madre-720.webp 720w, assets/img/madre-960.webp 960w"
+                      sizes="(min-width: 900px) 38vw, 84vw">
+              <img src="assets/img/madre-720.jpg"
+                   srcset="assets/img/madre-480.jpg 480w, assets/img/madre-720.jpg 720w, assets/img/madre-960.jpg 960w"
+                   sizes="(min-width: 900px) 38vw, 84vw"
+                   width="960" height="1280" fetchpriority="high" decoding="async"
+                   alt="Retrato de Ángela María Londoño.">
+            </picture>
+          </div>
+          </div>
+          <figcaption>Ángela María Londoño</figcaption>
+        </figure>
+      </div>
+
+      <p class="portada__pie" aria-hidden="true">
+        <span>Desliza</span>
+        <span class="portada__pie-linea"></span>
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ 01 · CARTA -->
+    <section class="carta" id="carta" aria-labelledby="t-carta">
+      <div class="contenedor">
+        <article class="carta__hoja" data-revelar>
+          <p class="etiqueta">01 — Carta</p>
+          <h2 class="titulo" id="t-carta">Para ti, mamá</h2>
+
+          <div class="carta__cuerpo">
+            <p class="carta__saludo">Querida mamá:</p>
+            <!-- ✏️ TEXTO: carta. Podés agregar más <p class="carta__parrafo"> -->
+            <p class="carta__parrafo">
+              Este espacio está dedicado a ti con todo mi amor y gratitud. Eres la luz
+              de mi vida y siempre te llevaré en mi corazón.
+            </p>
+            <p class="carta__remate">¡Te amo!</p>
+          </div>
+
+          <svg class="ramita" viewBox="0 0 120 24" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <path d="M4 12h44M72 12h44"/>
+              <path d="M60 12c-4-6-9-8-14-8 2 6 7 8 14 8Zm0 0c4-6 9-8 14-8-2 6-7 8-14 8Z"/>
+              <path d="M60 12v7"/>
+            </g>
+          </svg>
+
+          <footer class="carta__firma">
+            <p>Con todo mi amor,<br><span class="firma">tu hijo</span></p>
+            <div class="sello" aria-hidden="true">
+              <svg viewBox="0 0 100 100" focusable="false">
+                <circle cx="50" cy="50" r="45" fill="#1B3229"/>
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#C2A26B" stroke-opacity=".6" stroke-width="1.4"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="#C2A26B" stroke-opacity=".35" stroke-width=".8" stroke-dasharray="1 3.2"/>
+                <text x="50" y="63" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="38" fill="#E8D9BE">A</text>
+              </svg>
+            </div>
+          </footer>
+
+          <button class="enlace-sutil" id="imprimir" type="button" hidden>
+            Imprimir la carta
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════ 02 · RECUERDOS -->
+    <section class="recuerdos" id="recuerdos" aria-labelledby="t-recuerdos">
+      <div class="contenedor">
+        <header class="seccion__cabecera" data-revelar>
+          <p class="etiqueta">02 — Recuerdos</p>
+          <h2 class="titulo titulo--claro" id="t-recuerdos">La línea de los días</h2>
+        </header>
+
+        <ol class="linea" id="linea" aria-label="Recuerdos de Ángela"></ol>
+
+        <div class="vacio" id="recuerdos-vacio" data-revelar>
+          <svg class="ramita ramita--clara" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+              <path d="M60 36V14"/>
+              <path d="M60 24c-8 0-12-4-12-10 6 0 12 4 12 10Zm0-5c8 0 12-4 12-10-6 0-12 4-12 10Z"/>
+              <circle cx="60" cy="9" r="3.2"/>
+            </g>
+          </svg>
+          <h3>El jardín está creciendo</h3>
+          <p>
+            Acá se plantarán los recuerdos que la familia confirme: los días, los viajes,
+            las cosas pequeñas que sólo nosotros sabemos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════ 03 · GALERÍA -->
+    <section class="galeria" id="galeria" aria-labelledby="t-galeria">
+      <div class="contenedor">
+        <header class="seccion__cabecera" data-revelar>
+          <p class="etiqueta">03 — Galería</p>
+          <h2 class="titulo" id="t-galeria">Los días que guardamos</h2>
+          <p class="seccion__intro">
+            Cada fotografía se puede abrir, ampliar y recorrer con el teclado o con los dedos.
+          </p>
+        </header>
+
+        <div class="grilla" id="grilla"></div>
+
+        <noscript>
+          <div class="vacio">
+            <h3>Para ver la galería</h3>
+            <p>Activá JavaScript en tu navegador. El resto de este homenaje se lee igual.</p>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ 04 · JARDÍN -->
+    <section class="jardin" id="jardin" aria-labelledby="t-jardin">
+      <div class="jardin__luz" aria-hidden="true"></div>
+      <div class="contenedor">
+        <header class="seccion__cabecera seccion__cabecera--centrada" data-revelar>
+          <p class="etiqueta">04 — Jardín</p>
+          <h2 class="titulo titulo--claro" id="t-jardin">Todo lo que florece de ti</h2>
+          <p class="seccion__intro seccion__intro--clara">
+            No hay una sola forma de recordar. Hay tallos, brotes y flores que vuelven
+            cada año sin que nadie se lo pida. Este jardín es eso: lo que sigue creciendo.
+          </p>
+        </header>
+
+        <div class="jardin__escena" data-jardin>
+          <svg class="jardin__svg" viewBox="0 0 1200 660" role="img" aria-labelledby="jardin-titulo-svg" preserveAspectRatio="xMidYMax slice">
+<title id="jardin-titulo-svg">Ilustración botánica: tres tallos con flores, hojas y pasto mecidos por el viento</title>
+<g class="jardin__fondo" fill="none" stroke="#7C8F7B" stroke-width="1.2" stroke-linecap="round" stroke-opacity=".32">
+<path class="tallo" pathLength="1" d="M90 640 C 86 560, 108 500, 100 450 S 106 396, 102 372" stroke-width="1.1" stroke-opacity="0.9" />
+<path class="tallo" pathLength="1" d="M430 640 C 426 566, 446 512, 438 466 S 444 416, 440 392" stroke-width="1.1" stroke-opacity="0.9" />
+<path class="tallo" pathLength="1" d="M770 640 C 776 560, 752 508, 760 462 S 754 412, 758 388" stroke-width="1.1" stroke-opacity="0.9" />
+<path class="tallo" pathLength="1" d="M1130 640 C 1136 566, 1114 512, 1122 468 S 1116 418, 1120 394" stroke-width="1.1" stroke-opacity="0.9" />
+</g>
+<g class="jardin__fondo" fill="#7C8F7B" fill-opacity=".22">
+<ellipse cx="102" cy="364" rx="5" ry="8"/>
+<ellipse cx="440" cy="384" rx="5" ry="8"/>
+<ellipse cx="758" cy="380" rx="5" ry="8"/>
+<ellipse cx="1120" cy="386" rx="5" ry="8"/>
+</g>
+<g class="jardin__medio" fill="none" stroke="#7C8F7B" stroke-width="2" stroke-linecap="round">
+<path class="tallo" pathLength="1" d="M300 640 C 286 520, 352 430, 330 322 S 336 214, 352 176" stroke-width="2" stroke-opacity="1" data-tallo="0"/>
+<path class="tallo" pathLength="1" d="M600 640 C 614 536, 566 462, 590 378 S 578 262, 612 204" stroke-width="2" stroke-opacity="1" data-tallo="1"/>
+<path class="tallo" pathLength="1" d="M902 640 C 916 520, 866 442, 888 352 S 874 226, 856 184" stroke-width="2" stroke-opacity="1" data-tallo="2"/>
+<path class="tallo" pathLength="1" d="M180 640 C 176 540, 206 470, 196 404 S 204 330, 200 300" stroke-width="1.2" stroke-opacity="0.7" />
+<path class="tallo" pathLength="1" d="M1010 640 C 1016 548, 986 480, 996 420 S 988 350, 992 320" stroke-width="1.2" stroke-opacity="0.7" />
+</g>
+<g class="jardin__medio jardin__hojas" fill="#7C8F7B" fill-opacity=".9" stroke="#C2A26B" stroke-opacity=".25" stroke-width=".8">
+<g transform="translate(306.1 530.1) rotate(-21.6)"><path class="hoja" d="M0 0 C 29.5 -27.6, 66.3 -27.6, 92.1 0 C 66.3 27.6, 29.5 27.6, 0 0 Z"/></g>
+<g transform="translate(306.1 530.1) rotate(-126.8)"><path class="hoja" d="M0 0 C 18.3 17.1, 41.1 17.1, 57.0 0 C 41.1 -17.1, 18.3 -17.1, 0 0 Z"/></g>
+<g transform="translate(326.1 440.5) rotate(-136.9)"><path class="hoja" d="M0 0 C 33.0 30.9, 74.2 30.9, 103.1 0 C 74.2 -30.9, 33.0 -30.9, 0 0 Z"/></g>
+<g transform="translate(326.1 440.5) rotate(-25.6)"><path class="hoja" d="M0 0 C 20.6 -19.3, 46.4 -19.3, 64.5 0 C 46.4 19.3, 20.6 19.3, 0 0 Z"/></g>
+<g transform="translate(333.9 351.0) rotate(-39.8)"><path class="hoja" d="M0 0 C 27.9 -26.2, 62.9 -26.2, 87.3 0 C 62.9 26.2, 27.9 26.2, 0 0 Z"/></g>
+<g transform="translate(333.9 351.0) rotate(-144.7)"><path class="hoja" d="M0 0 C 17.5 16.4, 39.3 16.4, 54.6 0 C 39.3 -16.4, 17.5 -16.4, 0 0 Z"/></g>
+<g transform="translate(331.1 305.2) rotate(-140.2)"><path class="hoja" d="M0 0 C 28.2 26.4, 63.4 26.4, 88.0 0 C 63.4 -26.4, 28.2 -26.4, 0 0 Z"/></g>
+<g transform="translate(331.1 305.2) rotate(-35.7)"><path class="hoja" d="M0 0 C 19.0 -17.9, 42.9 -17.9, 59.5 0 C 42.9 17.9, 19.0 17.9, 0 0 Z"/></g>
+<g transform="translate(336.2 252.5) rotate(-30.0)"><path class="hoja" d="M0 0 C 24.8 -23.2, 55.7 -23.2, 77.4 0 C 55.7 23.2, 24.8 23.2, 0 0 Z"/></g>
+<g transform="translate(336.2 252.5) rotate(-133.1)"><path class="hoja" d="M0 0 C 14.7 13.8, 33.0 13.8, 45.9 0 C 33.0 -13.8, 14.7 -13.8, 0 0 Z"/></g>
+<g transform="translate(598.5 546.1) rotate(-45.4)"><path class="hoja" d="M0 0 C 31.7 -29.7, 71.3 -29.7, 99.1 0 C 71.3 29.7, 31.7 29.7, 0 0 Z"/></g>
+<g transform="translate(598.5 546.1) rotate(-145.2)"><path class="hoja" d="M0 0 C 18.3 17.1, 41.1 17.1, 57.0 0 C 41.1 -17.1, 18.3 -17.1, 0 0 Z"/></g>
+<g transform="translate(586.5 472.1) rotate(-154.1)"><path class="hoja" d="M0 0 C 33.6 31.5, 75.7 31.5, 105.1 0 C 75.7 -31.5, 33.6 -31.5, 0 0 Z"/></g>
+<g transform="translate(586.5 472.1) rotate(-49.4)"><path class="hoja" d="M0 0 C 20.6 -19.3, 46.4 -19.3, 64.5 0 C 46.4 19.3, 20.6 19.3, 0 0 Z"/></g>
+<g transform="translate(585.1 400.7) rotate(-29.5)"><path class="hoja" d="M0 0 C 28.0 -26.3, 63.1 -26.3, 87.6 0 C 63.1 26.3, 28.0 26.3, 0 0 Z"/></g>
+<g transform="translate(585.1 400.7) rotate(-138.1)"><path class="hoja" d="M0 0 C 17.5 16.4, 39.3 16.4, 54.6 0 C 39.3 -16.4, 17.5 -16.4, 0 0 Z"/></g>
+<g transform="translate(588.7 359.7) rotate(-154.7)"><path class="hoja" d="M0 0 C 29.0 27.2, 65.2 27.2, 90.6 0 C 65.2 -27.2, 29.0 -27.2, 0 0 Z"/></g>
+<g transform="translate(588.7 359.7) rotate(-45.7)"><path class="hoja" d="M0 0 C 19.0 -17.9, 42.9 -17.9, 59.5 0 C 42.9 17.9, 19.0 17.9, 0 0 Z"/></g>
+<g transform="translate(588.8 300.4) rotate(-29.0)"><path class="hoja" d="M0 0 C 23.2 -21.7, 52.2 -21.7, 72.5 0 C 52.2 21.7, 23.2 21.7, 0 0 Z"/></g>
+<g transform="translate(588.8 300.4) rotate(-135.1)"><path class="hoja" d="M0 0 C 14.7 13.8, 33.0 13.8, 45.9 0 C 33.0 -13.8, 14.7 -13.8, 0 0 Z"/></g>
+<g transform="translate(899.9 533.8) rotate(-39.5)"><path class="hoja" d="M0 0 C 29.9 -28.0, 67.3 -28.0, 93.4 0 C 67.3 28.0, 29.9 28.0, 0 0 Z"/></g>
+<g transform="translate(899.9 533.8) rotate(-149.7)"><path class="hoja" d="M0 0 C 18.3 17.1, 41.1 17.1, 57.0 0 C 41.1 -17.1, 18.3 -17.1, 0 0 Z"/></g>
+<g transform="translate(886.7 452.8) rotate(-154.5)"><path class="hoja" d="M0 0 C 32.7 30.6, 73.6 30.6, 102.2 0 C 73.6 -30.6, 32.7 -30.6, 0 0 Z"/></g>
+<g transform="translate(886.7 452.8) rotate(-48.7)"><path class="hoja" d="M0 0 C 20.6 -19.3, 46.4 -19.3, 64.5 0 C 46.4 19.3, 20.6 19.3, 0 0 Z"/></g>
+<g transform="translate(883.7 376.3) rotate(-19.5)"><path class="hoja" d="M0 0 C 30.4 -28.5, 68.4 -28.5, 95.0 0 C 68.4 28.5, 30.4 28.5, 0 0 Z"/></g>
+<g transform="translate(883.7 376.3) rotate(-132.1)"><path class="hoja" d="M0 0 C 17.5 16.4, 39.3 16.4, 54.6 0 C 39.3 -16.4, 17.5 -16.4, 0 0 Z"/></g>
+<g transform="translate(885.6 332.5) rotate(-152.8)"><path class="hoja" d="M0 0 C 29.4 27.6, 66.1 27.6, 91.8 0 C 66.1 -27.6, 29.4 -27.6, 0 0 Z"/></g>
+<g transform="translate(885.6 332.5) rotate(-48.0)"><path class="hoja" d="M0 0 C 19.0 -17.9, 42.9 -17.9, 59.5 0 C 42.9 17.9, 19.0 17.9, 0 0 Z"/></g>
+<g transform="translate(876.8 271.3) rotate(-43.9)"><path class="hoja" d="M0 0 C 21.6 -20.3, 48.6 -20.3, 67.5 0 C 48.6 20.3, 21.6 20.3, 0 0 Z"/></g>
+<g transform="translate(876.8 271.3) rotate(-148.8)"><path class="hoja" d="M0 0 C 14.7 13.8, 33.0 13.8, 45.9 0 C 33.0 -13.8, 14.7 -13.8, 0 0 Z"/></g>
+<g transform="translate(191.8 498.9) rotate(-25.6)"><path class="hoja hoja--fina" d="M0 0 C 20.5 -19.2, 46.1 -19.2, 64.0 0 C 46.1 19.2, 20.5 19.2, 0 0 Z"/></g>
+<g transform="translate(196.1 403.0) rotate(-140.0)"><path class="hoja hoja--fina" d="M0 0 C 18.6 17.4, 41.8 17.4, 58.0 0 C 41.8 -17.4, 18.6 -17.4, 0 0 Z"/></g>
+<g transform="translate(199.6 361.8) rotate(-30.2)"><path class="hoja hoja--fina" d="M0 0 C 14.7 -13.8, 33.1 -13.8, 46.0 0 C 33.1 13.8, 14.7 13.8, 0 0 Z"/></g>
+<g transform="translate(1000.0 508.3) rotate(-42.6)"><path class="hoja hoja--fina" d="M0 0 C 20.5 -19.2, 46.1 -19.2, 64.0 0 C 46.1 19.2, 20.5 19.2, 0 0 Z"/></g>
+<g transform="translate(995.9 419.1) rotate(-152.3)"><path class="hoja hoja--fina" d="M0 0 C 18.6 17.4, 41.8 17.4, 58.0 0 C 41.8 -17.4, 18.6 -17.4, 0 0 Z"/></g>
+<g transform="translate(992.4 379.8) rotate(-37.9)"><path class="hoja hoja--fina" d="M0 0 C 14.7 -13.8, 33.1 -13.8, 46.0 0 C 33.1 13.8, 14.7 13.8, 0 0 Z"/></g>
+</g>
+<g class="jardin__medio jardin__flores">
+<g transform="translate(352.0 168.0)"><g class="flor"><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(12.0)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(63.4)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(114.9)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(166.3)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(217.7)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(269.1)"/><ellipse cx="0" cy="-38.4" rx="24.8" ry="40.9" fill="#E8D9BE" transform="rotate(320.6)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(37.7)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(89.1)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(140.6)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(192.0)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(243.4)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(294.9)"/><ellipse cx="0" cy="-21.1" rx="16.1" ry="26.0" fill="#E8D9BE" fill-opacity=".92" transform="rotate(346.3)"/><circle r="13.6" fill="#C2A26B"/><circle r="6.2" fill="#8C6F3E" fill-opacity=".55"/></g></g>
+<g transform="translate(614.0 196.0)"><g class="flor"><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(24.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(69.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(114.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(159.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(204.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(249.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(294.0)"/><ellipse cx="0" cy="-45.9" rx="29.6" ry="48.8" fill="#F7F3EA" transform="rotate(339.0)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(46.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(91.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(136.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(181.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(226.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(271.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(316.5)"/><ellipse cx="0" cy="-25.2" rx="19.2" ry="31.1" fill="#F7F3EA" fill-opacity=".92" transform="rotate(361.5)"/><circle r="16.3" fill="#C2A26B"/><circle r="7.4" fill="#8C6F3E" fill-opacity=".55"/></g></g>
+<g transform="translate(858.0 176.0)"><g class="flor"><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(0.0)"/><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(60.0)"/><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(120.0)"/><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(180.0)"/><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(240.0)"/><ellipse cx="0" cy="-34.7" rx="22.4" ry="37.0" fill="#E8D9BE" transform="rotate(300.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(30.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(90.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(150.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(210.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(270.0)"/><ellipse cx="0" cy="-19.0" rx="14.6" ry="23.5" fill="#E8D9BE" fill-opacity=".92" transform="rotate(330.0)"/><circle r="12.3" fill="#C2A26B"/><circle r="5.6" fill="#8C6F3E" fill-opacity=".55"/></g></g>
+<g transform="translate(340.0 316.0)"><g class="flor flor--chica"><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(18.0)"/><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(78.0)"/><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(138.0)"/><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(198.0)"/><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(258.0)"/><ellipse cx="0" cy="-21.1" rx="13.6" ry="22.4" fill="#F7F3EA" transform="rotate(318.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(48.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(108.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(168.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(228.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(288.0)"/><ellipse cx="0" cy="-11.6" rx="8.8" ry="14.3" fill="#F7F3EA" fill-opacity=".92" transform="rotate(348.0)"/><circle r="7.5" fill="#C2A26B"/><circle r="3.4" fill="#8C6F3E" fill-opacity=".55"/></g></g>
+<g transform="translate(892.0 344.0)"><g class="flor flor--chica"><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(40.0)"/><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(100.0)"/><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(160.0)"/><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(220.0)"/><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(280.0)"/><ellipse cx="0" cy="-18.6" rx="12.0" ry="19.8" fill="#E8D9BE" transform="rotate(340.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(70.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(130.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(190.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(250.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(310.0)"/><ellipse cx="0" cy="-10.2" rx="7.8" ry="12.6" fill="#E8D9BE" fill-opacity=".92" transform="rotate(370.0)"/><circle r="6.6" fill="#C2A26B"/><circle r="3.0" fill="#8C6F3E" fill-opacity=".55"/></g></g>
+</g>
+<g class="jardin__medio jardin__capullos" fill="none" stroke="#C2A26B" stroke-width="1.6" stroke-linecap="round">
+<path d="M200 296 C 196 276, 208 262, 218 258 C 220 274, 212 290, 200 296 Z"/>
+<path d="M992 316 C 1000 298, 1016 292, 1024 296 C 1018 312, 1004 320, 992 316 Z"/>
+</g>
+<g class="jardin__luciernagas" fill="#F0E2BC">
+<circle class="luciernaga" cx="550" cy="295" r="2.6"/>
+<circle class="luciernaga" cx="535" cy="274" r="2.7"/>
+<circle class="luciernaga" cx="1007" cy="590" r="1.6"/>
+<circle class="luciernaga" cx="354" cy="266" r="2.2"/>
+<circle class="luciernaga" cx="865" cy="443" r="2.1"/>
+<circle class="luciernaga" cx="719" cy="562" r="1.8"/>
+<circle class="luciernaga" cx="831" cy="378" r="2.0"/>
+<circle class="luciernaga" cx="458" cy="410" r="1.6"/>
+<circle class="luciernaga" cx="559" cy="300" r="1.8"/>
+</g>
+<g class="jardin__frente" fill="none" stroke="#0E1B16" stroke-width="2.2" stroke-linecap="round">
+<path d="M20 660 C 10 631, 19 609, 19 597"/>
+<path d="M38 660 C 32 632, 38 610, 61 598"/>
+<path d="M56 660 C 54 630, 52 607, 51 594"/>
+<path d="M74 660 C 64 625, 87 598, 97 582"/>
+<path d="M92 660 C 102 634, 75 614, 77 602"/>
+<path d="M110 660 C 112 625, 113 598, 88 582"/>
+<path d="M128 660 C 127 644, 110 632, 133 625"/>
+<path d="M146 660 C 144 629, 131 604, 132 590"/>
+<path d="M164 660 C 154 633, 159 612, 170 600"/>
+<path d="M182 660 C 184 645, 194 633, 165 626"/>
+<path d="M200 660 C 203 639, 193 622, 187 613"/>
+<path d="M218 660 C 223 634, 206 613, 224 601"/>
+<path d="M236 660 C 240 635, 232 615, 235 604"/>
+<path d="M254 660 C 245 646, 240 634, 255 628"/>
+<path d="M272 660 C 277 642, 268 627, 268 619"/>
+<path d="M290 660 C 290 627, 291 601, 311 587"/>
+<path d="M308 660 C 301 625, 307 599, 315 583"/>
+<path d="M326 660 C 317 634, 316 613, 346 601"/>
+<path d="M344 660 C 335 631, 341 608, 332 595"/>
+<path d="M362 660 C 358 646, 363 636, 385 630"/>
+<path d="M380 660 C 373 645, 378 634, 372 627"/>
+<path d="M398 660 C 398 631, 414 608, 402 595"/>
+<path d="M416 660 C 415 627, 411 601, 407 586"/>
+<path d="M434 660 C 436 647, 419 636, 413 630"/>
+<path d="M452 660 C 445 640, 437 625, 450 616"/>
+<path d="M470 660 C 461 639, 486 623, 481 614"/>
+<path d="M488 660 C 497 644, 482 632, 468 626"/>
+<path d="M506 660 C 498 637, 519 619, 527 608"/>
+<path d="M524 660 C 524 647, 507 636, 532 630"/>
+<path d="M542 660 C 532 639, 527 622, 522 613"/>
+<path d="M560 660 C 555 645, 557 633, 552 626"/>
+<path d="M578 660 C 582 626, 576 600, 576 585"/>
+<path d="M596 660 C 596 635, 597 616, 587 605"/>
+<path d="M614 660 C 604 645, 630 634, 595 628"/>
+<path d="M632 660 C 635 630, 632 606, 651 593"/>
+<path d="M650 660 C 643 639, 654 623, 651 614"/>
+<path d="M668 660 C 665 630, 683 607, 668 594"/>
+<path d="M686 660 C 684 642, 677 628, 692 620"/>
+<path d="M704 660 C 709 629, 693 605, 690 592"/>
+<path d="M722 660 C 730 642, 712 629, 704 621"/>
+<path d="M740 660 C 748 640, 723 624, 719 614"/>
+<path d="M758 660 C 764 625, 744 598, 757 583"/>
+<path d="M776 660 C 783 627, 772 601, 777 586"/>
+<path d="M794 660 C 798 632, 806 611, 800 598"/>
+<path d="M812 660 C 819 640, 804 625, 817 616"/>
+<path d="M830 660 C 826 632, 825 610, 837 598"/>
+<path d="M848 660 C 851 635, 845 615, 833 604"/>
+<path d="M866 660 C 861 630, 876 607, 880 594"/>
+<path d="M884 660 C 876 625, 870 598, 886 583"/>
+<path d="M902 660 C 899 633, 887 612, 888 600"/>
+<path d="M920 660 C 915 629, 928 605, 932 591"/>
+<path d="M938 660 C 929 635, 928 616, 951 605"/>
+<path d="M956 660 C 965 635, 956 616, 980 605"/>
+<path d="M974 660 C 981 644, 981 631, 961 624"/>
+<path d="M992 660 C 1000 638, 988 621, 990 611"/>
+<path d="M1010 660 C 1018 643, 992 630, 1012 622"/>
+<path d="M1028 660 C 1028 633, 1040 611, 1020 599"/>
+<path d="M1046 660 C 1056 640, 1032 625, 1064 616"/>
+<path d="M1064 660 C 1072 629, 1050 606, 1052 592"/>
+<path d="M1082 660 C 1074 639, 1075 622, 1105 612"/>
+<path d="M1100 660 C 1095 626, 1108 600, 1077 585"/>
+<path d="M1118 660 C 1109 636, 1112 617, 1114 607"/>
+<path d="M1136 660 C 1144 641, 1126 627, 1154 618"/>
+<path d="M1154 660 C 1145 638, 1155 620, 1163 611"/>
+<path d="M1172 660 C 1171 627, 1190 601, 1191 586"/>
+</g>
+<g class="jardin__frente" fill="none" stroke="#16281F" stroke-width="1.4" stroke-linecap="round" stroke-opacity=".8">
+<path d="M34 660 C 36 644, 33 632, 46 627"/>
+<path d="M60 660 C 62 643, 66 631, 58 625"/>
+<path d="M86 660 C 90 643, 87 631, 75 626"/>
+<path d="M112 660 C 117 644, 106 632, 117 628"/>
+<path d="M138 660 C 142 637, 141 620, 132 613"/>
+<path d="M164 660 C 165 650, 159 643, 164 639"/>
+<path d="M190 660 C 185 645, 178 635, 186 631"/>
+<path d="M216 660 C 211 643, 226 632, 217 627"/>
+<path d="M242 660 C 237 636, 232 619, 231 612"/>
+<path d="M268 660 C 268 637, 278 621, 278 614"/>
+<path d="M294 660 C 291 646, 294 635, 289 631"/>
+<path d="M320 660 C 325 638, 330 622, 321 615"/>
+<path d="M346 660 C 345 650, 335 643, 338 641"/>
+<path d="M372 660 C 378 641, 361 627, 361 622"/>
+<path d="M398 660 C 395 652, 403 646, 390 644"/>
+<path d="M424 660 C 424 644, 426 633, 435 628"/>
+<path d="M450 660 C 453 642, 455 629, 462 624"/>
+<path d="M476 660 C 478 652, 484 646, 480 643"/>
+<path d="M502 660 C 506 643, 503 632, 493 627"/>
+<path d="M528 660 C 529 649, 530 641, 516 637"/>
+<path d="M554 660 C 556 637, 550 622, 544 615"/>
+<path d="M580 660 C 585 642, 573 630, 589 625"/>
+<path d="M606 660 C 601 649, 615 641, 594 638"/>
+<path d="M632 660 C 631 651, 630 644, 646 641"/>
+<path d="M658 660 C 660 643, 651 632, 662 627"/>
+<path d="M684 660 C 679 639, 686 625, 679 618"/>
+<path d="M710 660 C 708 639, 715 624, 714 618"/>
+<path d="M736 660 C 742 647, 744 637, 746 633"/>
+<path d="M762 660 C 756 644, 768 633, 766 629"/>
+<path d="M788 660 C 788 638, 781 622, 776 615"/>
+<path d="M814 660 C 810 649, 809 642, 820 638"/>
+<path d="M840 660 C 836 643, 844 631, 826 625"/>
+<path d="M866 660 C 865 650, 864 644, 861 641"/>
+<path d="M892 660 C 890 649, 895 641, 877 637"/>
+<path d="M918 660 C 917 649, 915 641, 914 638"/>
+<path d="M944 660 C 945 637, 934 621, 953 615"/>
+<path d="M970 660 C 965 647, 978 638, 982 634"/>
+<path d="M996 660 C 1001 637, 998 622, 986 615"/>
+<path d="M1022 660 C 1020 643, 1028 630, 1015 625"/>
+<path d="M1048 660 C 1051 650, 1040 643, 1062 640"/>
+<path d="M1074 660 C 1072 650, 1075 643, 1070 640"/>
+<path d="M1100 660 C 1096 645, 1093 635, 1090 630"/>
+<path d="M1126 660 C 1124 639, 1116 625, 1138 618"/>
+<path d="M1152 660 C 1157 636, 1141 619, 1145 612"/>
+<path d="M1178 660 C 1176 637, 1171 620, 1175 613"/>
+</g>
+</svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════════════ 05 · GRACIAS -->
+    <section class="gracias" id="gracias" aria-labelledby="t-gracias">
+      <div class="contenedor contenedor--angosto">
+        <div class="gracias__bloque" data-revelar>
+          <p class="etiqueta">05 — Gratitud</p>
+          <h2 class="gracias__titulo" id="t-gracias">Gracias, <em>mamá</em>.</h2>
+          <!-- ✏️ TEXTO: gratitud -->
+          <p class="gracias__texto">
+            Fuiste el sostén de este hogar. Lo que somos, lo aprendimos mirándote:
+            la entereza, la ternura, las ganas de seguir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ 06 · PERDÓN -->
+    <section class="perdon" id="perdon" aria-labelledby="t-perdon">
+      <div class="contenedor contenedor--angosto">
+        <div class="perdon__bloque" data-revelar>
+          <p class="etiqueta">06 — Perdón</p>
+          <h2 class="perdon__titulo" id="t-perdon">Si alguna vez faltó una palabra</h2>
+          <!-- ✏️ TEXTO: perdón. Es la sección más delicada: reescribila con tus palabras. -->
+          <p class="perdon__texto">
+            Si el apuro nos ganó, si callamos lo que había que decir, si no llegamos a
+            tiempo: perdón, mamá. Hoy elegimos quedarnos con todo lo que sí supimos darnos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ 07 · CIERRE -->
+    <section class="cierre" id="cierre" aria-labelledby="t-cierre">
+      <div class="cierre__luz" aria-hidden="true"></div>
+      <div class="contenedor">
+        <h2 class="cierre__frase" id="t-cierre">
+          <span>Todo</span> <span>va a</span> <span>estar</span> <span>bien</span>
+        </h2>
+        <p class="cierre__lema">Tu familia te ama</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__interior">
+      <svg class="pie__flor" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+          <path d="M20 35V18"/>
+          <path d="M20 26c-6.2 0-9.4-3.2-9.4-8.4 5.2 0 9.4 3.2 9.4 8.4Z"/>
+          <path d="M20 21c6.2 0 9.4-3.2 9.4-8.4-5.2 0-9.4 3.2-9.4 8.4Z"/>
+          <circle cx="20" cy="10.6" r="4.4"/>
+        </g>
+      </svg>
+      <p class="pie__firma">Hecho con amor por su hijo.</p>
+      <p class="pie__nombre">Ángela María Londoño</p>
+      <div class="pie__acciones">
+        <a href="#inicio">Volver al inicio</a>
+        <button class="pie__compartir" id="compartir" type="button" hidden>Compartir este jardín</button>
+      </div>
+    </div>
+  </footer>
+
+  <button class="musica" id="musica" type="button" aria-pressed="false" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="18" r="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="16.5" cy="16" r="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+    </svg>
+    <span class="musica__texto">Música</span>
+  </button>
+  <audio id="audio" loop preload="none"></audio>
+
+  <dialog class="visor" id="visor" aria-label="Visor de fotografías">
+    <div class="visor__marco">
+      <button class="visor__boton visor__cerrar" id="visor-cerrar" type="button" aria-label="Cerrar visor">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </button>
+
+      <button class="visor__boton visor__zoom" id="visor-zoom" type="button" aria-label="Ampliar fotografía" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l4.5 4.5M8 10.5h5M10.5 8v5"/></g></svg>
+      </button>
+
+      <button class="visor__boton visor__nav visor__nav--prev" id="visor-prev" type="button" aria-label="Fotografía anterior">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <figure class="visor__figura">
+        <picture>
+          <source id="visor-webp" type="image/webp">
+          <img id="visor-img" alt="" width="960" height="1280" decoding="async">
+        </picture>
+        <figcaption id="visor-pie"></figcaption>
+        <p class="visor__pista" id="visor-pista">Tocá la fotografía para ampliarla</p>
+      </figure>
+
+      <button class="visor__boton visor__nav visor__nav--next" id="visor-next" type="button" aria-label="Fotografía siguiente">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <p class="visor__contador" id="visor-contador" aria-live="polite"></p>
+      <div class="visor__tiras" id="visor-tiras"></div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/fotos.js" defer></script>
+  <script src="assets/js/datos.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 </body>
 </html>
