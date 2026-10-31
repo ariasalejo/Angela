@@ -117,3 +117,34 @@ main>section:not(.portada)::before{content:"";position:absolute;inset:0 auto aut
 @media(max-width:600px){.historia__pie{align-items:flex-start;flex-direction:column}.carta__firma{align-items:center}}
 @media(prefers-reduced-motion:reduce){.historia__play{transition:none}}
 @media print{.historia{display:none!important}}
+
+
+/* AJUSTE EDITORIAL — celebrar su presencia, no evocarla como ausencia. */
+.portada .etiqueta.entra--1{letter-spacing:.2em}
+.carta{padding-block:clamp(5rem,10vw,9rem)}
+.carta__hoja{
+  max-width:66rem;
+  border:1px solid rgba(153,119,65,.24);
+  border-radius:3px;
+  background:
+    radial-gradient(ellipse at 92% 8%,rgba(201,169,106,.10),transparent 23%),
+    radial-gradient(ellipse at 4% 94%,rgba(124,143,123,.08),transparent 26%),
+    linear-gradient(90deg,rgba(201,169,106,.025) 1px,transparent 1px) 0 0/34px 34px,
+    #FCF9F3;
+  box-shadow:0 45px 100px -58px rgba(15,35,25,.52),0 0 0 7px rgba(201,169,106,.045),0 2px 0 #fff inset;
+}
+.carta__hoja>.etiqueta{color:#8A7046;letter-spacing:.2em}
+.carta__hoja>.titulo{font-size:clamp(2.8rem,5.3vw,4.6rem);margin-bottom:clamp(2rem,4vw,3.4rem)}
+.carta__cuerpo{max-width:68ch}
+.carta__saludo{font-size:clamp(2rem,3.2vw,2.65rem);color:#425747}
+.carta__parrafo{font-size:clamp(1.55rem,2.05vw,1.85rem);line-height:1.55;color:#343A32}
+.carta__parrafo+.carta__parrafo{margin-top:1.12em}
+.carta__remate{font-size:clamp(1.9rem,2.8vw,2.35rem);color:#526A53}
+.carta__firma{padding-top:1.3rem;border-top:1px solid rgba(153,119,65,.22)}
+.carta__firma-texto{font-size:clamp(1.8rem,2.8vw,2.3rem);color:#405343}
+.carta__firma .sello{filter:drop-shadow(0 8px 14px rgba(15,35,25,.16))}
+@media(max-width:600px){
+  .carta__hoja{padding:1.6rem 1.25rem}
+  .carta__hoja>.titulo{font-size:2.65rem}
+  .carta__parrafo{font-size:1.48rem;line-height:1.52}
+}
