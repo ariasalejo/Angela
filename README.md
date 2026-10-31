@@ -32,8 +32,7 @@ docs/
 originales/                    fotos originales (ignorada por Git)
 ```
 
-Sin frameworks. Sin CDN. Sin build obligatorio: lo que está en `docs/` es lo
-que se publica.
+Sin frameworks. Sin CDN de ejecución. Sin build obligatorio: lo que está en `docs/` es lo que se publica. La dirección visual 2026 y sus interacciones viven en `experiencia-2026.css` y `experiencia-2026.js`.
 
 ---
 
@@ -46,7 +45,7 @@ Todo el texto vive en `docs/index.html`, dentro de bloques marcados con **✏️
 - Gratitud
 - Perdón
 
-Los recuerdos y la música viven en `docs/assets/js/datos.js`.
+Los recuerdos confirmados y la música opcional viven en `docs/assets/js/datos.js`. La sección visual no inventa fechas ni acontecimientos mientras la familia no los confirme.
 
 **Regla de la casa:** no se inventan fechas, nombres ni recuerdos. Si un dato no
 está confirmado, no se escribe.
@@ -115,6 +114,10 @@ Cloudflare Pages + Cloudflare Access o a Netlify con protección por contraseña
 Decilo antes de subir fotos íntimas.
 
 ---
+
+## Experiencia audiovisual
+
+El video musical se abre en un diálogo y se carga desde `youtube-nocookie.com` únicamente después de pulsar reproducir. Las flores interactivas y la vela son estados efímeros de la visita: no se almacenan ni se envían a ningún servidor.
 
 ## Accesibilidad y rendimiento
 
