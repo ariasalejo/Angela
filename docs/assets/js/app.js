@@ -668,45 +668,94 @@
 
   iniciarPetalos();
 
-  /* ──────────────────────────────────────────────────────── música ────── */
-  const botonMusica = $("#musica");
+  /* ───────────────────────────────────────────── música ambiental ────── */
   const audio = $("#audio");
   const musica = DATOS.musica || {};
+  const selectorVideos = 'iframe[src*="youtube.com"], iframe[src*="youtube-nocookie.com"]';
 
-  if (botonMusica && audio && musica.src) {
+  if (audio && musica.src) {
     audio.src = musica.src;
     audio.loop = true;
-    botonMusica.hidden = false;
-    botonMusica.title = musica.titulo || "Música ambiental";
+    audio.preload = "none";
+    audio.volume = 0;
 
+    let iniciada = false;
+    let intentando = false;
     let fundido = 0;
-    botonMusica.addEventListener("click", () => {
-      const suena = botonMusica.getAttribute("aria-pressed") === "true";
-      if (suena) {
-        fundir(0, () => audio.pause());
-        botonMusica.setAttribute("aria-pressed", "false");
+
+    const hayVideoActivo = () => Boolean(document.querySelector(selectorVideos));
+
+    function fundir(destino) {
+      window.clearInterval(fundido);
+      const origen = audio.volume;
+      const pasos = 14;
+      let paso = 0;
+      fundido = window.setInterval(() => {
+        paso += 1;
+        audio.volume = Math.max(0, Math.min(1, origen + (destino - origen) * (paso / pasos)));
+        if (paso >= pasos) {
+          window.clearInterval(fundido);
+          audio.volume = destino;
+        }
+      }, 45);
+    }
+
+    function reanudarMusica() {
+      if (!iniciada || audio.paused === false || document.hidden || hayVideoActivo()) return;
+      audio.volume = 0;
+      audio.play()
+        .then(() => fundir(0.14))
+        .catch(() => { /* El navegador puede bloquear la reproducción por sus políticas. */ });
+    }
+
+    function iniciarMusica(evento) {
+      if (iniciada || intentando || hayVideoActivo()) return;
+      if (evento?.target?.closest?.("#abrir-video, #abrir-testimonio")) return;
+
+      intentando = true;
+      audio.volume = 0;
+      audio.play()
+        .then(() => {
+          iniciada = true;
+          intentando = false;
+          fundir(0.14);
+          document.removeEventListener("click", iniciarMusica);
+          document.removeEventListener("keydown", iniciarMusica);
+        })
+        .catch(() => {
+          intentando = false;
+        });
+    }
+
+    document.addEventListener("click", iniciarMusica);
+    document.addEventListener("keydown", iniciarMusica);
+
+    // YouTube se inserta sólo cuando la persona abre un vídeo.
+    // Al retirarse el iframe, la música vuelve suavemente desde donde quedó.
+    const observadorVideos = new MutationObserver(() => {
+      if (hayVideoActivo()) {
+        if (!audio.paused) {
+          window.clearInterval(fundido);
+          audio.pause();
+          audio.volume = 0;
+        }
       } else {
-        audio.volume = 0;
-        audio.play().then(() => {
-          fundir(0.55);
-          botonMusica.setAttribute("aria-pressed", "true");
-        }).catch(() => { /* el navegador pidió un gesto: ya lo hubo, pero por si acaso */ });
+        reanudarMusica();
       }
     });
+    observadorVideos.observe(document.body, { childList: true, subtree: true });
 
-    function fundir(destino, alTerminar) {
-      clearInterval(fundido);
-      fundido = setInterval(() => {
-        const paso = destino > audio.volume ? 0.04 : -0.04;
-        const nuevo = Math.max(0, Math.min(1, audio.volume + paso));
-        audio.volume = nuevo;
-        if (Math.abs(nuevo - destino) < 0.05) {
-          audio.volume = destino;
-          clearInterval(fundido);
-          if (alTerminar) alTerminar();
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        if (!audio.paused) {
+          window.clearInterval(fundido);
+          audio.pause();
+          audio.volume = 0;
         }
-      }, 80);
-    }
+      } else {
+        reanudarMusica();
+      }
+    });
   }
 
   /* ────────────────────────────────────────────────────── compartir ──── */

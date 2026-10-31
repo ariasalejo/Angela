@@ -20,8 +20,8 @@ window.DATOS = {
      Opcional. Dejá src vacío y el reproductor no aparece.
      Usá sólo audio propio o con licencia. */
   musica: {
-    src: "",
-    titulo: ""
+    src: "assets/audio/solo-dejenme-adorarle.mp3",
+    titulo: "Solo déjenme adorarle · Grupo Peniel"
   },
 
   /* -------------------------------------------------------------- GALERÍA
