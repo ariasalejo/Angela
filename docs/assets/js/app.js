@@ -670,77 +670,89 @@
 
   /* ───────────────────────────────────────────── música ambiental ────── */
   const audio = $("#audio");
+  const botonMusica = $("#activar-musica");
+  const textoMusica = $("#activar-musica-texto");
   const musica = DATOS.musica || {};
   const selectorVideos = 'iframe[src*="youtube.com"], iframe[src*="youtube-nocookie.com"]';
+  const volumenAmbiente = 0.18;
 
-  if (audio && musica.src) {
+  if (audio && botonMusica && musica.src) {
     audio.src = musica.src;
     audio.loop = true;
     audio.preload = "none";
     audio.volume = 0;
+    botonMusica.hidden = false;
 
     let iniciada = false;
     let intentando = false;
     let fundido = 0;
+    let pausadaPorVideo = false;
+    let pausadaPorPestana = false;
 
-    const hayVideoActivo = () => Boolean(document.querySelector(selectorVideos));
+    const hayVideoAbierto = () => Boolean(document.querySelector(selectorVideos));
 
     function fundir(destino) {
       window.clearInterval(fundido);
       const origen = audio.volume;
-      const pasos = 14;
+      const pasos = 18;
       let paso = 0;
       fundido = window.setInterval(() => {
         paso += 1;
-        audio.volume = Math.max(0, Math.min(1, origen + (destino - origen) * (paso / pasos)));
+        audio.volume = origen + (destino - origen) * (paso / pasos);
         if (paso >= pasos) {
           window.clearInterval(fundido);
           audio.volume = destino;
         }
-      }, 45);
+      }, 55);
     }
 
-    function reanudarMusica() {
-      if (!iniciada || audio.paused === false || document.hidden || hayVideoActivo()) return;
+    function reproducirDeNuevo() {
+      if (!iniciada || !audio.paused || document.hidden || hayVideoAbierto()) return;
       audio.volume = 0;
       audio.play()
-        .then(() => fundir(0.14))
-        .catch(() => { /* El navegador puede bloquear la reproducción por sus políticas. */ });
+        .then(() => fundir(volumenAmbiente))
+        .catch(() => { /* No insistimos si el navegador todavía bloquea el audio. */ });
     }
 
-    function iniciarMusica(evento) {
-      if (iniciada || intentando || hayVideoActivo()) return;
-      if (evento?.target?.closest?.("#abrir-video, #abrir-testimonio")) return;
-
+    function activarMusica() {
+      if (iniciada || intentando) return;
       intentando = true;
       audio.volume = 0;
+
       audio.play()
         .then(() => {
           iniciada = true;
           intentando = false;
-          fundir(0.14);
-          document.removeEventListener("click", iniciarMusica);
-          document.removeEventListener("keydown", iniciarMusica);
+          fundir(volumenAmbiente);
+          botonMusica.hidden = true;
+          botonMusica.setAttribute("aria-hidden", "true");
         })
         .catch(() => {
           intentando = false;
+          if (textoMusica) textoMusica.textContent = "Reintentar música";
+          botonMusica.hidden = false;
         });
     }
 
-    document.addEventListener("click", iniciarMusica);
-    document.addEventListener("keydown", iniciarMusica);
+    botonMusica.addEventListener("click", activarMusica);
 
-    // YouTube se inserta sólo cuando la persona abre un vídeo.
-    // Al retirarse el iframe, la música vuelve suavemente desde donde quedó.
+    audio.addEventListener("error", () => {
+      if (textoMusica) textoMusica.textContent = "No se pudo cargar el audio";
+      botonMusica.hidden = false;
+    });
+
+    // El reproductor de YouTube se crea al abrir el diálogo y se elimina al cerrarlo.
     const observadorVideos = new MutationObserver(() => {
-      if (hayVideoActivo()) {
+      if (hayVideoAbierto()) {
         if (!audio.paused) {
+          pausadaPorVideo = true;
           window.clearInterval(fundido);
           audio.pause();
           audio.volume = 0;
         }
-      } else {
-        reanudarMusica();
+      } else if (pausadaPorVideo) {
+        pausadaPorVideo = false;
+        reproducirDeNuevo();
       }
     });
     observadorVideos.observe(document.body, { childList: true, subtree: true });
@@ -748,12 +760,14 @@
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         if (!audio.paused) {
+          pausadaPorPestana = true;
           window.clearInterval(fundido);
           audio.pause();
           audio.volume = 0;
         }
-      } else {
-        reanudarMusica();
+      } else if (pausadaPorPestana) {
+        pausadaPorPestana = false;
+        reproducirDeNuevo();
       }
     });
   }

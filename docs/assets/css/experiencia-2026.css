@@ -148,3 +148,24 @@ main>section:not(.portada)::before{content:"";position:absolute;inset:0 auto aut
   .carta__hoja>.titulo{font-size:2.65rem}
   .carta__parrafo{font-size:1.48rem;line-height:1.52}
 }
+
+
+/* ACTIVACIÓN MUSICAL DE UN SOLO USO: desaparece cuando comienza el audio. */
+.musica--inicio {
+  border-color: rgba(201,169,106,.62);
+  background: rgba(9,22,16,.9);
+  box-shadow: 0 12px 34px rgba(0,0,0,.22), 0 0 0 4px rgba(201,169,106,.07);
+  letter-spacing: .12em;
+}
+.musica--inicio:hover {
+  background: #E8D9BE;
+  color: #102219;
+  transform: translateY(-2px);
+}
+.musica--inicio:focus-visible {
+  outline: 2px solid #E8D9BE;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .musica--inicio { transition: none; }
+}
