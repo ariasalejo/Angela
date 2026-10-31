@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-src https://www.youtube-nocookie.com; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Ángela María Londoño · Un jardín para mamá</title>
@@ -38,6 +38,9 @@
         imagesrcset="assets/img/madre-480.webp 480w, assets/img/madre-720.webp 720w, assets/img/madre-960.webp 960w"
         imagesizes="(min-width: 900px) 38vw, 84vw">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/estilos.css">
   <link rel="stylesheet" href="assets/css/experiencia-2026.css">
   <script src="assets/js/preludio.js"></script>
@@ -97,6 +100,7 @@
         <a href="#galeria">La galería</a>
         <a href="#jardin">El jardín</a>
         <a href="#gracias">Gracias</a>
+        <a href="#historia">Un recuerdo especial</a>
         <a href="#perdon">Perdón</a>
         <a href="#cierre">Cierre</a>
       </nav>
@@ -111,6 +115,7 @@
       <li><a href="#galeria"><span>Galería</span></a></li>
       <li><a href="#jardin"><span>El jardín</span></a></li>
       <li><a href="#gracias"><span>Gracias</span></a></li>
+      <li><a href="#historia"><span>Esperanza</span></a></li>
       <li><a href="#perdon"><span>Perdón</span></a></li>
       <li><a href="#cierre"><span>Cierre</span></a></li>
     </ol>
@@ -189,7 +194,7 @@
           </svg>
 
           <footer class="carta__firma">
-            <p>Con todo mi amor,<br><span class="firma">tu hijo</span></p>
+            <p class="carta__firma-texto">Con todo nuestro amor,<br><span class="firma">Alex</span><br>y <span class="firma">Eduar</span></p>
             <div class="sello" aria-hidden="true">
               <svg viewBox="0 0 100 100" focusable="false">
                 <circle cx="50" cy="50" r="45" fill="#1B3229"/>
@@ -484,11 +489,37 @@
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════════════ 06 · PERDÓN -->
+    <!-- ═════════════════════════════════════════════════ 06 · VIDEO FAMILIAR -->
+    <section class="historia" id="historia" aria-labelledby="t-historia">
+      <div class="contenedor contenedor--angosto">
+        <header class="historia__cabecera" data-revelar>
+          <p class="etiqueta">06 — Un recuerdo de esperanza</p>
+          <h2 class="historia__titulo" id="t-historia">Un capítulo que hoy miramos con esperanza.</h2>
+          <p class="historia__texto">Este video lo hice para ti cuando llegó el diagnóstico de cáncer de seno. Hoy, que ya te aliviaste, lo miramos con alivio, amor y gratitud. No borra lo difícil de aquel momento; guarda una parte de nuestra historia y nos recuerda cuánto vale cada día compartido.</p>
+        </header>
+        <div class="historia__tarjeta" data-revelar>
+          <div class="historia__reproductor" id="testimonio-caja">
+            <button class="historia__poster" id="abrir-testimonio" type="button" aria-label="Reproducir el video familiar de Ángela">
+              <img src="assets/img/madre-720.webp" width="720" height="960" loading="lazy" decoding="async" alt="Retrato de Ángela María en la portada del recuerdo familiar.">
+              <span class="historia__velo" aria-hidden="true"></span>
+              <span class="historia__play" aria-hidden="true">▶</span>
+              <span class="historia__poster-texto">Ver nuestro recuerdo</span>
+            </button>
+          </div>
+          <div class="historia__pie">
+            <span class="historia__sello">Un recuerdo de la familia</span>
+            <p>Hecho con amor para ti, mamá.</p>
+            <a href="https://youtu.be/wGZsq14J6U4" target="_blank" rel="noopener noreferrer">Abrir el video en YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════ 07 · PERDÓN -->
     <section class="perdon" id="perdon" aria-labelledby="t-perdon">
       <div class="contenedor contenedor--angosto">
         <div class="perdon__bloque" data-revelar>
-          <p class="etiqueta">06 — Perdón</p><h2 class="perdon__titulo" id="t-perdon">Perdón, <em>mamá</em>.</h2>
+          <p class="etiqueta">07 — Perdón</p><h2 class="perdon__titulo" id="t-perdon">Perdón, <em>mamá</em>.</h2>
           <p class="perdon__lead">Perdón por dejarte abandonada este año.</p>
           <p class="perdon__texto">Perdón por dejarte abandonada este año. No quiero suavizar esa frase ni esconderla detrás de explicaciones. Reconozco que hubo momentos en los que necesitabas más de mí, de mi compañía y de mi atención, y no estuve como debía. Me duele reconocerlo, pero hacerlo con honestidad es el primer paso para cambiar.</p>
           <p class="perdon__texto">No te pido que olvides lo que sentiste ni que una página reemplace el tiempo que no compartimos. Tampoco quiero que mis palabras se conviertan en una promesa vacía. Quiero asumir mi responsabilidad, escucharte, acercarme y aprender a estar presente de una manera más constante.</p>
@@ -504,11 +535,11 @@
     <section class="cierre" id="cierre" aria-labelledby="t-cierre">
       <div class="cierre__luz" aria-hidden="true"></div>
       <div class="contenedor">
-        <p class="etiqueta cierre__etiqueta">07 — Para siempre</p>
+        <p class="etiqueta cierre__etiqueta">08 — Para siempre</p>
         <h2 class="cierre__frase" id="t-cierre"><span>Todo</span> <span>va a</span> <span>estar</span> <span>bien</span></h2>
         <p class="cierre__lema">Tu familia te ama</p>
         <p class="cierre__dedicatoria">Mamá, que este jardín te recuerde que eres querida, que tu historia importa y que siempre habrá una razón para acercarnos, escucharnos y volver a elegir el cariño. No es el final de lo que quiero decirte: es una forma de empezar a demostrarlo mejor.</p>
-        <p class="cierre__firma">Con todo mi amor,<br><span>tu hijo</span></p>
+        <p class="cierre__firma">Con todo nuestro amor,<br><span>Alex y Eduar</span></p>
         <section class="cancion" aria-labelledby="cancion-titulo">
           <p class="cancion__etiqueta">Una canción para ti</p>
           <div class="cancion__tarjeta">

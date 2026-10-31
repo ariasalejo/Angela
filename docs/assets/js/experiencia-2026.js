@@ -36,6 +36,21 @@
     });
   }
 
+  const abrirTestimonio = $("#abrir-testimonio");
+  const cajaTestimonio = $("#testimonio-caja");
+  if (abrirTestimonio && cajaTestimonio) {
+    abrirTestimonio.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/wGZsq14J6U4?autoplay=1&rel=0";
+      iframe.title = "Video familiar dedicado a Ángela María";
+      iframe.loading = "eager";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allowFullscreen = true;
+      cajaTestimonio.replaceChildren(iframe);
+    });
+  }
+
   const abrirVideo = $("#abrir-video");
   const dialogoVideo = $("#video");
   const cerrarVideo = $("#cerrar-video");
