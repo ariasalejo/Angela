@@ -687,8 +687,9 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   grid-template-columns: repeat(12, 1fr);
   gap: clamp(.7rem, 1.5vw, 1.2rem);
   align-items: start;
+  grid-auto-flow: row dense;
 }
-.foto { grid-column: span var(--span, 6); margin: 0; }
+.foto { grid-column: span var(--span, 4); margin: 0; }
 .foto--unica { grid-column: 1 / -1; max-width: 640px; margin-inline: auto; }
 
 .foto__boton {
@@ -822,6 +823,7 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   line-height: 1.85;
   color: #3A382F;
 }
+.gracias__texto + .gracias__texto { margin-top: 1.1rem; }
 
 /* ------------------------------------------------------------------ PERDÓN */
 .perdon { padding: clamp(6rem, 16vh, 11rem) 0; background: var(--bosque-oscuro); color: var(--marfil); text-align: center; }
@@ -841,6 +843,15 @@ ol, ul { margin: 0; padding: 0; list-style: none; }
   color: rgba(247, 243, 234, .76);
   font-size: 1.02rem;
   line-height: 1.95;
+}
+.perdon__texto + .perdon__texto { margin-top: 1.1rem; }
+.perdon__texto--remate {
+  margin-top: 2.4rem;
+  color: var(--champagne);
+  font-family: var(--cursiva);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.6;
 }
 
 /* ------------------------------------------------------------------ CIERRE */
@@ -1287,6 +1298,9 @@ p { text-wrap: pretty; }
   .visor__nav--next { right: calc(50% - 60px); }
   .visor__tiras { display: none; }
   .visor__zoom { top: 1rem; right: 4.5rem; }
+
+  .foto--vertical { grid-column: span 6; }
+  .foto--panorama { grid-column: span 12; }
 }
 
 @media (max-width: 720px) {

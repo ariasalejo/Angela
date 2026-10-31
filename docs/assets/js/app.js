@@ -165,12 +165,7 @@
 
   /* ────────────────────────────────────────────────────── galería ─────── */
   const grilla = $("#grilla");
-  const patron = [
-    { span: 7, ratio: "4 / 5" }, { span: 5, ratio: "1 / 1" },
-    { span: 5, ratio: "1 / 1" }, { span: 7, ratio: "4 / 5" },
-    { span: 4, ratio: "3 / 4" }, { span: 4, ratio: "1 / 1" }, { span: 4, ratio: "3 / 4" },
-    { span: 8, ratio: "16 / 10" }, { span: 4, ratio: "3 / 4" }
-  ];
+  const esVertical = (foto) => foto.ancho / foto.alto < 1.05;
 
   const srcset = (foto, ext) =>
     foto.variantes.map((v) => `${foto.base}-${v.w}.${ext} ${v.w}w`).join(", ");
@@ -203,7 +198,9 @@
       const img = document.createElement("img");
       img.src = jpgBase(foto);
       img.srcset = srcset(foto, "jpg");
-      img.sizes = "(min-width: 1100px) 600px, (min-width: 720px) 46vw, 92vw";
+      img.sizes = esVertical(foto)
+        ? "(min-width: 901px) 33vw, (min-width: 721px) 46vw, 92vw"
+        : "(min-width: 901px) 66vw, 92vw";
       img.width = foto.ancho;
       img.height = foto.alto;
       img.alt = foto.alt || "";
@@ -215,26 +212,33 @@
       boton.append(marco);
       boton.addEventListener("click", () => abrirVisor(i));
 
-      const pie = document.createElement("figcaption");
-      const texto = document.createElement("span");
-      texto.textContent = foto.epigrafe || "";
-      pie.append(texto);
-      if (foto.fecha && (!DATOS.galeria || DATOS.galeria.mostrarFechas !== false)) {
-        const fecha = document.createElement("span");
-        fecha.className = "foto__fecha";
-        fecha.textContent = foto.fecha;
-        pie.append(fecha);
-      }
+      const tieneEpigrafe = Boolean(foto.epigrafe && foto.epigrafe.trim());
+      const tieneFecha = Boolean(
+        foto.fecha && (!DATOS.galeria || DATOS.galeria.mostrarFechas !== false)
+      );
 
       if (FOTOS.length === 1) {
         fig.classList.add("foto--unica");
       } else {
-        const p = patron[i % patron.length];
-        fig.style.setProperty("--span", p.span);
-        fig.style.setProperty("--ratio", p.ratio);
+        fig.classList.add(esVertical(foto) ? "foto--vertical" : "foto--panorama");
+        fig.style.setProperty("--span", esVertical(foto) ? 4 : 8);
       }
 
-      fig.append(boton, pie);
+      if (tieneEpigrafe || tieneFecha) {
+        const pie = document.createElement("figcaption");
+        const texto = document.createElement("span");
+        texto.textContent = foto.epigrafe || "";
+        pie.append(texto);
+        if (tieneFecha) {
+          const fecha = document.createElement("span");
+          fecha.className = "foto__fecha";
+          fecha.textContent = foto.fecha;
+          pie.append(fecha);
+        }
+        fig.append(boton, pie);
+      } else {
+        fig.append(boton);
+      }
       grilla.append(fig);
     });
 
