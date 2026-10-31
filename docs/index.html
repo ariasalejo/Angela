@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Ángela María Londoño · Un jardín para mamá</title>
@@ -39,6 +39,7 @@
         imagesizes="(min-width: 900px) 38vw, 84vw">
 
   <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="stylesheet" href="assets/css/experiencia-2026.css">
   <script src="assets/js/preludio.js"></script>
 </head>
 <body>
@@ -128,12 +129,8 @@
             <span class="portada__nombre-linea">Ángela</span>
             <span class="portada__nombre-linea portada__nombre-linea--cursiva">María Londoño</span>
           </h1>
-          <p class="portada__lema entra entra--3">Madre de mi alma</p>
-          <!-- ✏️ TEXTO: presentación breve -->
-          <p class="portada__intro entra entra--4">
-            Este jardín existe para decirte, con calma, todo lo que la vida cotidiana
-            no siempre alcanza a decir.
-          </p>
+          <p class="portada__lema entra entra--3">Mi madre, mi raíz y mi amor de siempre</p>
+          <p class="portada__intro entra entra--4">Mamá, este jardín nació de algo que a veces cuesta decir mirando a los ojos: cuánto te quiero, cuánto agradezco que formes parte de mi vida y cuánto deseo que nunca dudes del lugar que ocupas en mi corazón. No es una página para aparentar perfección; es un espacio hecho con cariño para detener el tiempo, mirarte con calma y recordarte que eres profundamente importante para mí.</p>
           <a class="boton entra entra--5" href="#carta">
             Entrar al jardín
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15M5.5 13 12 19.5 18.5 13" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -174,12 +171,13 @@
 
           <div class="carta__cuerpo">
             <p class="carta__saludo">Querida mamá:</p>
-            <!-- ✏️ TEXTO: carta. Podés agregar más <p class="carta__parrafo"> -->
-            <p class="carta__parrafo">
-              Este espacio está dedicado a ti con todo mi amor y gratitud. Eres la luz
-              de mi vida y siempre te llevaré en mi corazón.
-            </p>
-            <p class="carta__remate">¡Te amo!</p>
+            <!-- ✏️ TEXTO: carta personal. No añadir acontecimientos que la familia no haya confirmado. -->
+            <p class="carta__parrafo">Hoy quiero regalarte estas palabras sin afán, sin ruido y sin tratar de resumir en una página todo lo que significas para mí. Hay sentimientos que uno lleva por dentro durante mucho tiempo y que, entre las obligaciones y el ritmo de los días, no siempre expresa como quisiera. Este jardín es mi manera de hacer una pausa y decirte que te quiero, que agradezco tu existencia y que tu lugar en mi vida es inmenso.</p>
+            <p class="carta__parrafo">Gracias por ser mi mamá. Gracias por la vida y por todo lo que representa tenerte en mi historia. A veces las palabras parecen pequeñas frente a lo que uno siente, pero hoy quiero usarlas para reconocer tu valor y para recordarte que no eres alguien más en mi camino: eres parte de mis raíces, de mi identidad y de ese vínculo que merece cuidado todos los días.</p>
+            <p class="carta__parrafo">También quiero reconocer que no siempre he sabido demostrar lo que siento de la mejor manera. No quiero esconder mis errores detrás de explicaciones ni hacer como si todo hubiera sido perfecto. Hay cosas que debo aprender, actitudes que debo corregir y momentos en los que pude estar más presente. Te pido perdón por aquello en lo que te haya hecho sentir sola o poco acompañada. Lo digo con humildad y con el deseo sincero de hacerlo mejor.</p>
+            <p class="carta__parrafo">Quiero que mi cariño no se quede solamente en una carta bonita. Quiero expresarlo con tiempo, atención, escucha y compañía; con gestos sencillos que se repitan y que tengan más valor que cualquier promesa escrita. Quiero aprender a estar, a acercarme y a darte la mano cuando haga falta. Sé que el amor también se demuestra en la constancia.</p>
+            <p class="carta__parrafo">Si recorres estas fotografías y estas palabras, deseo que encuentres algo muy sencillo y verdadero: aquí hay un hijo que te quiere, que te agradece y que quiere seguir construyendo contigo una relación llena de respeto, ternura y presencia. No necesitas ser perfecta para ser profundamente amada. Gracias por ser Ángela María, mi mamá.</p>
+            <p class="carta__remate">Te quiero muchísimo, mamá. Hoy y siempre.</p>
           </div>
 
           <svg class="ramita" viewBox="0 0 120 24" aria-hidden="true" focusable="false">
@@ -217,22 +215,15 @@
           <h2 class="titulo titulo--claro" id="t-recuerdos">La línea de los días</h2>
         </header>
 
-        <ol class="linea" id="linea" aria-label="Recuerdos de Ángela"></ol>
-
-        <div class="vacio" id="recuerdos-vacio" data-revelar>
-          <svg class="ramita ramita--clara" viewBox="0 0 120 40" aria-hidden="true" focusable="false">
-            <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-              <path d="M60 36V14"/>
-              <path d="M60 24c-8 0-12-4-12-10 6 0 12 4 12 10Zm0-5c8 0 12-4 12-10-6 0-12 4-12 10Z"/>
-              <circle cx="60" cy="9" r="3.2"/>
-            </g>
-          </svg>
-          <h3>El jardín está creciendo</h3>
-          <p>
-            Acá se plantarán los recuerdos que la familia confirme: los días, los viajes,
-            las cosas pequeñas que sólo nosotros sabemos.
-          </p>
+        <div class="recuerdos__apertura" data-revelar><p>No todos los recuerdos necesitan una fecha escrita para tener un lugar. Algunas imágenes hablan desde el silencio: nos permiten detenernos, mirar con cariño y agradecer que ciertos instantes formen parte de nuestra historia.</p><p>Esta selección es una invitación a mirar despacio. Los nombres, las fechas y las historias particulares se añadirán únicamente cuando la familia pueda confirmarlos; mientras tanto, cada fotografía conserva su espacio sin que inventemos lo que no sabemos.</p></div>
+        <div class="triptico" aria-label="Tres fotografías del álbum familiar">
+          <figure class="triptico__foto triptico__foto--izq" data-revelar><span class="triptico__numero" aria-hidden="true">I</span><img src="assets/img/album-03-480.webp" width="480" height="647" loading="lazy" decoding="async" alt="Fotografía del álbum familiar seleccionada para este homenaje."><figcaption>Una imagen para volver a mirar.</figcaption></figure>
+          <figure class="triptico__foto triptico__foto--centro" data-revelar><span class="triptico__numero" aria-hidden="true">II</span><img src="assets/img/album-05-720.webp" width="720" height="534" loading="lazy" decoding="async" alt="Fotografía del álbum familiar seleccionada para este homenaje."><figcaption>Un instante guardado con cariño.</figcaption></figure>
+          <figure class="triptico__foto triptico__foto--der" data-revelar><span class="triptico__numero" aria-hidden="true">III</span><img src="assets/img/album-12-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="Fotografía del álbum familiar seleccionada para este homenaje."><figcaption>Una parte de nuestra historia.</figcaption></figure>
         </div>
+        <div class="recuerdos__nota" data-revelar><span class="recuerdos__filete" aria-hidden="true"></span><p>Las historias verdaderas merecen ser contadas con verdad.</p><a class="enlace-flecha" href="#galeria">Recorrer todas las fotografías <span aria-hidden="true">↗</span></a></div>
+        <ol class="linea" id="linea" aria-label="Recuerdos confirmados de Ángela"></ol>
+        <div class="vacio" id="recuerdos-vacio" hidden></div>
       </div>
     </section>
 
@@ -266,8 +257,7 @@
           <p class="etiqueta">04 — Jardín</p>
           <h2 class="titulo titulo--claro" id="t-jardin">Todo lo que florece de ti</h2>
           <p class="seccion__intro seccion__intro--clara">
-            No hay una sola forma de recordar. Hay tallos, brotes y flores que vuelven
-            cada año sin que nadie se lo pida. Este jardín es eso: lo que sigue creciendo.
+            Un jardín no se construye en un solo día: crece con cuidado, paciencia y pequeños gestos. Así quiero representar el cariño que siento por ti. Cada tallo habla de lo que permanece; cada flor, de la belleza de agradecer; cada luz, de la esperanza de estar más cerca y cuidar mejor los vínculos que hacen valiosa nuestra vida.
           </p>
         </header>
 
@@ -469,24 +459,27 @@
 </g>
 </svg>
         </div>
+        <div class="jardin__interaccion" data-revelar>
+          <p>Si quieres, deja una flor en este jardín. No se guarda ni se envía: es un pequeño gesto para este momento.</p>
+          <button class="jardin__plantar" id="plantar-flor" type="button">Dejar una flor <span aria-hidden="true">✿</span></button>
+          <p class="jardin__respuesta" id="respuesta-flor" aria-live="polite">El jardín está aquí para recibirla.</p>
+          <div class="jardin__flores-usuario" id="flores-usuario" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
     <!-- ═════════════════════════════════════════════════════ 05 · GRACIAS -->
     <section class="gracias" id="gracias" aria-labelledby="t-gracias">
       <div class="contenedor contenedor--angosto">
-        <div class="gracias__bloque" data-revelar>
-          <p class="etiqueta">05 — Gratitud</p>
-          <h2 class="gracias__titulo" id="t-gracias">Gracias por <em>tanto</em>, mamá.</h2>
-          <!-- ✏️ TEXTO: gratitud. Revisar con la familia antes de publicar. -->
-          <p class="gracias__texto">
-            Gracias por la vida y por enseñarnos a vivirla. Por tu paciencia, por tu
-            ternura, por esa forma tuya de estar incluso cuando no decías nada.
-          </p>
-          <p class="gracias__texto">
-            Lo que somos lleva tu huella. Todo lo bueno que aprendimos a hacer, lo
-            aprendimos mirándote. Gracias por tanto, mamá. Te amamos.
-          </p>
+        <div class="gracias__composicion">
+          <figure class="gracias__foto" data-revelar><img src="assets/img/album-06-480.webp" width="480" height="647" loading="lazy" decoding="async" alt="Fotografía del álbum familiar elegida para acompañar este mensaje de gratitud."><figcaption>Con cariño, para ti.</figcaption></figure>
+          <div class="gracias__bloque" data-revelar>
+            <p class="etiqueta">05 — Gratitud</p><h2 class="gracias__titulo" id="t-gracias">Gracias por <em>tanto</em>, mamá.</h2>
+            <p class="gracias__texto">Gracias por la vida, mamá. Gracias por todo lo que has significado para mí y por el lugar que ocupas en mi historia. A veces uno da por sentado que siempre habrá tiempo para decir lo importante; hoy no quiero dejar pasar la oportunidad de expresarte mi gratitud.</p>
+            <p class="gracias__texto">Gracias por cada esfuerzo, por cada enseñanza y por todo aquello que quizá no supe reconocer en su momento. Gracias por las oportunidades de aprender, por los valores que me llevo y por las huellas que una madre deja en la vida de su hijo. No necesito enumerar momentos para saber que tu presencia tiene un valor que no cabe en una sola página.</p>
+            <p class="gracias__texto">Gracias por seguir siendo parte de mi camino. Quiero que recibas este homenaje como una muestra de amor y reconocimiento, no como una obligación ni como una forma de compensar con palabras lo que merece demostrarse con acciones. Te quiero y deseo cuidarte mejor.</p>
+            <p class="gracias__texto gracias__texto--remate">Gracias por tanto, Ángela María. Mi cariño por ti merece hacerse presente.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -495,20 +488,14 @@
     <section class="perdon" id="perdon" aria-labelledby="t-perdon">
       <div class="contenedor contenedor--angosto">
         <div class="perdon__bloque" data-revelar>
-          <p class="etiqueta">06 — Perdón</p>
-          <h2 class="perdon__titulo" id="t-perdon">Perdón, <em>mamá</em>.</h2>
-          <!-- ✏️ TEXTO: perdón. Escrito a partir de las palabras de la familia. -->
-          <p class="perdon__texto">
-            Perdón por dejarte abandonada este año. Por los días en que pudimos estar
-            y no estuvimos. Por las manos que no te dimos a tiempo.
-          </p>
-          <p class="perdon__texto">
-            No alcanza con decirlo, lo sé. Por eso te prometo algo concreto: de ahora
-            en adelante, más la mano, más cerca, más presente.
-          </p>
-          <p class="perdon__texto perdon__texto--remate">
-            No quiero que vuelvas a sentirte sola.
-          </p>
+          <p class="etiqueta">06 — Perdón</p><h2 class="perdon__titulo" id="t-perdon">Perdón, <em>mamá</em>.</h2>
+          <p class="perdon__lead">Perdón por dejarte abandonada este año.</p>
+          <p class="perdon__texto">Perdón por dejarte abandonada este año. No quiero suavizar esa frase ni esconderla detrás de explicaciones. Reconozco que hubo momentos en los que necesitabas más de mí, de mi compañía y de mi atención, y no estuve como debía. Me duele reconocerlo, pero hacerlo con honestidad es el primer paso para cambiar.</p>
+          <p class="perdon__texto">No te pido que olvides lo que sentiste ni que una página reemplace el tiempo que no compartimos. Tampoco quiero que mis palabras se conviertan en una promesa vacía. Quiero asumir mi responsabilidad, escucharte, acercarme y aprender a estar presente de una manera más constante.</p>
+          <p class="perdon__texto">Te prometo darte más la mano: más cercanía, más llamadas, más tiempo, más atención y más disposición para acompañarte. Quiero que puedas reconocer ese cambio en mis actos cotidianos, no solamente en lo que hoy escribo. Voy a esforzarme por demostrarte que no estás sola y que cuentas conmigo.</p>
+          <p class="perdon__texto perdon__texto--remate">Perdóname, mamá. Quiero hacerlo mejor y caminar más cerca de ti.</p>
+          <div class="perdon__promesa" aria-label="Mi promesa: más la mano, más cerca, más presente"><span>Más la mano.</span><span>Más cerca.</span><span>Más presente.</span></div>
+          <div class="perdon__vela"><span class="perdon__resplandor" aria-hidden="true"></span><span class="perdon__llama" aria-hidden="true"></span><button id="encender-vela" class="perdon__encender" type="button" aria-pressed="false">Encender una luz</button><p id="estado-vela" class="perdon__estado" aria-live="polite">Una luz pequeña también puede acompañar.</p></div>
         </div>
       </div>
     </section>
@@ -517,10 +504,21 @@
     <section class="cierre" id="cierre" aria-labelledby="t-cierre">
       <div class="cierre__luz" aria-hidden="true"></div>
       <div class="contenedor">
-        <h2 class="cierre__frase" id="t-cierre">
-          <span>Todo</span> <span>va a</span> <span>estar</span> <span>bien</span>
-        </h2>
+        <p class="etiqueta cierre__etiqueta">07 — Para siempre</p>
+        <h2 class="cierre__frase" id="t-cierre"><span>Todo</span> <span>va a</span> <span>estar</span> <span>bien</span></h2>
         <p class="cierre__lema">Tu familia te ama</p>
+        <p class="cierre__dedicatoria">Mamá, que este jardín te recuerde que eres querida, que tu historia importa y que siempre habrá una razón para acercarnos, escucharnos y volver a elegir el cariño. No es el final de lo que quiero decirte: es una forma de empezar a demostrarlo mejor.</p>
+        <p class="cierre__firma">Con todo mi amor,<br><span>tu hijo</span></p>
+        <section class="cancion" aria-labelledby="cancion-titulo">
+          <p class="cancion__etiqueta">Una canción para ti</p>
+          <div class="cancion__tarjeta">
+            <button class="cancion__portada" id="abrir-video" type="button" aria-haspopup="dialog" aria-controls="video">
+              <img src="assets/img/madre-480.webp" width="480" height="640" loading="lazy" decoding="async" alt="">
+              <span class="cancion__velo" aria-hidden="true"></span><span class="cancion__play" aria-hidden="true">▶</span><span class="cancion__fuente" aria-hidden="true">Reproducir</span>
+            </button>
+            <div class="cancion__info"><h3 id="cancion-titulo" class="cancion__titulo">Aunque no sea mes de mayo</h3><p class="cancion__autor">Felix Mora</p><p class="cancion__descripcion">Una canción elegida para acompañar este homenaje. El video sólo se conecta cuando tú decides reproducirlo.</p><a class="cancion__enlace" href="https://www.youtube.com/watch?v=Lp59AJkjSzI" target="_blank" rel="noopener noreferrer">Abrir en YouTube <span aria-hidden="true">↗</span></a></div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -588,6 +586,10 @@
 
   <script src="assets/js/fotos.js" defer></script>
   <script src="assets/js/datos.js" defer></script>
+  <dialog class="video" id="video" aria-labelledby="video-titulo">
+    <div class="video__marco"><button class="video__cerrar" id="cerrar-video" type="button" aria-label="Cerrar el video">×</button><p class="etiqueta">Una canción para ti</p><h2 id="video-titulo">Aunque no sea mes de mayo</h2><div class="video__caja" id="video-caja"><p>El video se conectará únicamente cuando pulses reproducir.</p></div><p class="video__nota">Felix Mora · YouTube. Reproducción voluntaria.</p></div>
+  </dialog>
   <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/experiencia-2026.js" defer></script>
 </body>
 </html>
